@@ -27,9 +27,9 @@ Or install it yourself as:
 
 Use add_frameworks method. Provide .xcodeproj file and target name as parameters like below
 
-```ruby
-carthframie add_frameworks 'Example.xcodeproj' 'Example'
-```
+    $ carthframie add_frameworks Example.xcodeproj Example
+    
+Please note that you need to run add_frameworks in the project root directory. (Contains '.xcodeproj' and 'Carthage/Build')
 
 ## Contributing
 
