@@ -10,6 +10,6 @@ jobs:
     - name: "Building carthframie"
       stage: compile
       script: bundle exec rake build
-    - name: "Testing AccessibleCore"
+    - name: "Testing carthframie"
       stage: test
       script: bundle exec rspec spec
