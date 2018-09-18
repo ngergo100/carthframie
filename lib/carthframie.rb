@@ -1,4 +1,6 @@
 require "carthframie/version"
+require "xcodeproj"
+require "thor"
 
 module Carthframie
 
@@ -12,6 +14,7 @@ module Carthframie
 
     def initialize(project_path, choosen_target_name)
       puts("ℹ️  Loading #{project_path}...")
+      @root = File.dirname(project_path)
       @project = Xcodeproj::Project.open(project_path)
       puts("🎉 #{project_path} has been successfully loaded.")
 
@@ -106,6 +109,14 @@ module Carthframie
       puts("🎉 Successfully added new copy build phase to #{@target.name} target.")
     end
 
+  end
+  
+  class Cli < Thor
+
+      desc 'add_frameworks Example.xcodeproj Example', 'Adds carthage framework to Example target of Example.xcodeproj'
+      def add_frameworks(project, target)
+        CarthageCopyFrameworks.new(project, target).run
+      end
   end
 
 end
